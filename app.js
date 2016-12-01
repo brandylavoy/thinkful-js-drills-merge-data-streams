@@ -7,24 +7,32 @@ function mergeDataStreams(stream1, stream2) {
         // populate the output marged data object (results) witht the elements from stream1
         results[stream1[i].id] = stream1[i];
     }
+
+    //checking the initial permutation of the id into a key
     console.log(results);
+
     //loop through the keys of the resutls object
-    for (var key in results) {
+    for (var resultsKey in results) {
         //for each one of the keys find the coresponding id in the stream2
         var otherData = stream2.find(
             function (item) {
-                return item.id === key;
+                return item.id === resultsKey;
             });
         //loop thorugh the output of the previous loop (otherData) and populate the stream2 inside the stream1 element
-        for (var _key in otherData) {
-            results[key][_key] = otherData[_key];
+        for (var otherDataKey in otherData) {
+            results[resultsKey][otherDataKey] = otherData[otherDataKey];
         }
     }
+
+    //checking the final merge based on the key generated above
+    console.log(results);
+
     //return the marge results of the stream1 and stream2
     return Object.keys(results).map(function (item) {
         return results[item];
     });
 }
+
 
 // data
 var dataSource1 = [
