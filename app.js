@@ -31,6 +31,10 @@ function mergeDataStreams(stream1, stream2) {
     return Object.keys(results).map(function (item) {
         return results[item];
     });
+    /* http://www.w3schools.com/jsref/jsref_map.asp
+    The map() method creates a new array with the results of calling a function for every array element.
+    The map() method calls the provided function once for each element in an array, in order.
+    */
 }
 
 
